@@ -1,9 +1,6 @@
-def reformat_languages(languages)
-  
-  var new_hash = {}
-  
-  
-  languages = {
+require 'pry'
+
+ languages = {
   :oo => {
     :ruby => {
       :type => "interpreted"
@@ -31,10 +28,27 @@ def reformat_languages(languages)
     :javascript => {
       :type => "interpreted"
     }
- 
-  }
+
+   }
 }
 
+ def reformat_languages(languages)	def reformat_languages(languages)
+  # your code here	  new_hash = {}
 
- return new_hash
-end
+   languages.each do |style, names|
+    names.each do |name, data|
+      if !new_hash.has_key?(name)
+        new_hash[name]= data
+        new_hash[name][:style]= []
+        new_hash[name][:style].push(style)
+
+       else
+        new_hash[name][:style].push(style)
+      end
+    end
+  end
+  new_hash
+end	end
+
+
+ reformat_languages(languages)
