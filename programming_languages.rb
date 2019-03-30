@@ -1,4 +1,8 @@
 def reformat_languages(languages)
+  
+  var new_hash = {}
+  
+  
   languages = {
   :oo => {
     :ruby => {
